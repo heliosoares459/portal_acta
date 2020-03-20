@@ -1,4 +1,4 @@
-package br.com.acta.portal;
+package br.com.acta.portal.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

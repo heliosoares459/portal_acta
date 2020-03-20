@@ -2,13 +2,13 @@ package br.com.acta.portal.helper;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
-import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+import org.springframework.stereotype.Component;
 
 import br.com.acta.portal.dao.ConvenioDao;
 import br.com.acta.portal.daoImpl.ConvenioAvonDaoImpl;
 
+@Component
 public enum ConvenioEnum {
 
 	AVON(0, new ConvenioAvonDaoImpl()), PRIME(1, new ConvenioAvonDaoImpl());
@@ -29,7 +29,7 @@ public enum ConvenioEnum {
 		return this.convenio;
 	}
 	
-	public static ConvenioDao getConvenioPorParceiro(Integer parceiro) {
+	public ConvenioDao getConvenioPorParceiro(Integer parceiro) {
 		ConvenioEnum convenioCliente = null;
 		List<ConvenioEnum> list = Arrays.asList(ConvenioEnum.values());
 

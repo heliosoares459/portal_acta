@@ -4,8 +4,8 @@ import javax.sql.DataSource;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
@@ -17,13 +17,13 @@ public class PortalApplication {
 	}
 
 	@Bean
-	public DataSource dataSource(){
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/listavip");
-		dataSource.setUsername("root");
-		dataSource.setPassword("root");
-		return dataSource;
-	}
+    public DataSource getDataSource() {
+        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+        dataSourceBuilder.driverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        dataSourceBuilder.url("jdbc:sqlserver://172.16.40.208:1433;databaseName=MKIED006");
+        dataSourceBuilder.username("mkie0010_dbo");
+        dataSourceBuilder.password("mkie0010_dbo2009");
+        return dataSourceBuilder.build();
+    }
 	
 }
